@@ -2,10 +2,10 @@
   "name": "deploy-to-dropbox",
   "version": "1.0.0",
   "description": "A GitHub Action to deploy to Dropbox",
-  "main": "build/main.js",
+  "main": "dist/main.js",
   "scripts": {
     "build": "tsc",
-    "start": "npm run build && node build/main.js",
+    "start": "npm run build && node dist/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
