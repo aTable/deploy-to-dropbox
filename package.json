@@ -2,10 +2,10 @@
   "name": "deploy-to-dropbox",
   "version": "1.0.0",
   "description": "A GitHub Action to deploy to Dropbox",
-  "main": "dist/main.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "npm run build && node dist/main.js",
+    "build": "tsc && ncc build dist/main.js",
+    "start": "npm run build && node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,6 +28,7 @@
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
+    "@zeit/ncc": "^0.22.0",
     "typescript": "^3.8.3"
   }
 }
