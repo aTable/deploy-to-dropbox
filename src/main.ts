@@ -6,22 +6,17 @@ const github = require('@actions/github')
 const glob = require('glob')
 
 const accessToken = core.getInput('DROPBOX_ACCESS_TOKEN')
-if (!accessToken) core.setFailed('Error: missing DROPBOX_ACCESS_TOKEN')
-const dropbox = new Dropbox({accessToken, fetch: fetch2})
-
 const globSource = core.getInput('GLOB')
-if (!globSource) core.setFailed('Error: missing GLOB')
-
 const dropboxPathPrefix = core.getInput('DROPBOX_DESTINATION_PATH_PREFIX')
-if (!dropboxPathPrefix)
-  core.setFailed('Error: missing DROPBOX_DESTINATION_PATH_PREFIX')
-
 const isDebug = core.getInput('DEBUG')
+const dropbox = new Dropbox({accessToken, fetch: fetch2})
 
 function uploadMuhFile(filePath: string): Promise<any> {
   const file = fs.readFileSync(filePath)
+  const destinationPath = `${dropboxPathPrefix}${filePath}`
+  if (isDebug) console.log('uploaded file to Dropbox at: ', destinationPath)
   return dropbox
-    .filesUpload({path: `${dropboxPathPrefix}${filePath}`, contents: file})
+    .filesUpload({path: destinationPath, contents: file})
     .then((response: any) => {
       if (isDebug) console.log(response)
       return response
