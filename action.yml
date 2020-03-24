@@ -1,0 +1,23 @@
+name: 'Deploy to Dropbox'
+description: 'This action will handle the deployment process of your project to Dropbox.'
+author: 'aTable'
+runs:
+  using: 'node12'
+  main: 'build/main.js'
+inputs:
+  DROPBOX_ACCESS_TOKEN:
+    description: 'Your Dropbox access token for the Developer App you created.'
+    required: true
+
+  GLOB: 
+    description: 'Glob that you want to save to Dropbox e.g dir1/dir2/**/*.md or **/*.txt'
+    required: true
+  
+  DROPBOX_DESTINATION_PATH_PREFIX:
+    description: 'The destination path prefix to save to in Dropbox. This will prepend the individual globs. Recommended default value is "/"'.
+    required: true
+
+  DEBUG:
+    description: "Enable debugging."
+    required: false
+
