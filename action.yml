@@ -8,7 +8,7 @@ runs:
   main: 'dist/index.js'
 inputs:
   DROPBOX_ACCESS_TOKEN:
-    description: '${{ secrets.DROPBOX_ACCESS_TOKEN }}'
+    description: 'Value should be ${{ secrets.DROPBOX_ACCESS_TOKEN }} that is set in your repository settings'
     required: true
 
   GLOB: 
