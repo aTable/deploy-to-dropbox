@@ -3,7 +3,7 @@ description: 'This action will handle the deployment process of your project to 
 author: 'aTable'
 runs:
   using: 'node12'
-  main: 'build/main.js'
+  main: 'dist/main.js'
 inputs:
   DROPBOX_ACCESS_TOKEN:
     description: 'Your Dropbox access token for the Developer App you created.'
