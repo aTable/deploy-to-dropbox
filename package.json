@@ -5,7 +5,6 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc && ncc build dist/main.js",
-    "start": "npm run build && node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,12 +22,11 @@
     "@actions/github": "^2.1.1",
     "@types/node": "^13.9.3",
     "dropbox": "^4.0.30",
-    "glob": "^7.1.6",
-    "isomorphic-fetch": "^2.2.1",
-    "node-fetch": "^2.6.0"
+    "glob": "^7.1.6"
   },
   "devDependencies": {
     "@zeit/ncc": "^0.22.0",
+    "node-fetch": "^2.6.0",
     "typescript": "^3.8.3"
   }
 }

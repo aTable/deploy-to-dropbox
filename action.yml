@@ -1,12 +1,14 @@
 name: 'Deploy to Dropbox'
 description: 'This action will handle the deployment process of your project to Dropbox.'
 author: 'aTable'
+icon: 'upload-cloud'
+color: 'black'
 runs:
   using: 'node12'
   main: 'dist/index.js'
 inputs:
   DROPBOX_ACCESS_TOKEN:
-    description: 'Your Dropbox access token for the Developer App you created.'
+    description: '${{ secrets.DROPBOX_ACCESS_TOKEN }}'
     required: true
 
   GLOB: 
