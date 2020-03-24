@@ -10,6 +10,5 @@ Follow [this guide](https://preventdirectaccess.com/docs/create-app-key-access-t
 ## Developing
 
 ```bash
-git tag -a -m "My first action release" v1
-git push --follow-tags
+git add -A && git commit -m "testing" && git tag -a -m "test release" v1 && git push --follow-tags
 ```
