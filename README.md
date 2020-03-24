@@ -14,6 +14,7 @@ Save the token to your repository `Settings > Secrets`:
 
 ## Developing
 
+For the lazy ...
 ```bash
-git add -A && git commit -m "testing" && git tag -a -m "test release" v1 && git push --follow-tags
+git add -A && git commit -m "ci" && git tag -a -m "ci" v1.0.5 && git push --follow-tags
 ```
