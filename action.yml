@@ -14,7 +14,7 @@ inputs:
     required: true
   
   DROPBOX_DESTINATION_PATH_PREFIX:
-    description: 'The destination path prefix to save to in Dropbox. This will prepend the individual globs. Default value is "/"'.
+    description: 'The destination path prefix to save to in Dropbox. This will prepend the individual globs. Default value is "/"'
     required: false
     default: "/"
 
