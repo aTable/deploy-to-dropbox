@@ -1,6 +1,6 @@
 {
   "name": "deploy-to-dropbox",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A GitHub Action to deploy to Dropbox",
   "main": "dist/index.js",
   "scripts": {

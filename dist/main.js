@@ -25,7 +25,7 @@ function uploadFile(filePath) {
         const file = fs.readFileSync(filePath);
         const destinationPath = `${dropboxPathPrefix}${filePath}`;
         if (isDebug)
-            console.log('Uploaded file to Dropbox at: ', destinationPath);
+            console.log('[Dropbox]', 'Uploaded file at: ', destinationPath);
         try {
             const response = yield dropbox.filesUpload({
                 path: destinationPath,
@@ -33,12 +33,12 @@ function uploadFile(filePath) {
                 mode: fileWriteMode,
             });
             if (isDebug)
-                console.log("Dropbox response", response);
+                console.log('[Dropbox]', 'File upload response', response);
             return response;
         }
         catch (error) {
             if (isDebug)
-                console.error("Dropbox error", error);
+                console.error('[Dropbox]', 'File upload error', error);
             return error;
         }
     });
@@ -48,9 +48,10 @@ glob(globSource, {}, (err, files) => {
         core.setFailed('Error: glob failed', err);
     Promise.all(files.map(uploadFile))
         .then((all) => {
-        console.log('all files uploaded', all);
+        console.log('[Dropbox]', 'All files uploaded', all);
     })
         .catch((err) => {
-        console.error('error', err);
+        core.setFailed('Error: dropbox upload failed', err);
+        console.error('[Dropbox]', 'Upload failed', err);
     });
 });
