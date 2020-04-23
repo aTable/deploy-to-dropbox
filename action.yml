@@ -21,6 +21,11 @@ inputs:
     required: false
     default: "/"
 
+  FILE_WRITE_MODE:
+    description: 'Set file write mode when conflict occurs. Allowed modes: "add", "overwrite", "update"'
+    required: false
+    default: "add"
+
   DEBUG:
     description: "Enable debugging."
     required: false

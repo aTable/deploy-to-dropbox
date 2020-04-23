@@ -1,6 +1,6 @@
 {
   "name": "deploy-to-dropbox",
-  "version": "1.0.0",
+  "version": "1.0.8",
   "description": "A GitHub Action to deploy to Dropbox",
   "main": "dist/index.js",
   "scripts": {
@@ -9,23 +9,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aTable/deploy-to-dropbox.git"
+    "url": "git+https://github.com/rensatsu/deploy-to-dropbox.git"
   },
-  "author": "",
+  "author": "Rensatsu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aTable/deploy-to-dropbox/issues"
+    "url": "https://github.com/rensatsu/deploy-to-dropbox/issues"
   },
-  "homepage": "https://github.com/aTable/deploy-to-dropbox#readme",
+  "homepage": "https://github.com/rensatsu/deploy-to-dropbox#readme",
   "dependencies": {
     "@actions/core": "^1.2.3",
     "@actions/github": "^2.1.1",
-    "@types/node": "^13.9.3",
+    "@types/node": "^13.13.2",
     "dropbox": "^4.0.30",
     "glob": "^7.1.6"
   },
   "devDependencies": {
-    "@zeit/ncc": "^0.22.0",
+    "@zeit/ncc": "^0.22.1",
     "node-fetch": "^2.6.0",
     "typescript": "^3.8.3"
   }
