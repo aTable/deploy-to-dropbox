@@ -15,13 +15,13 @@ Save the token to your repository `Settings > Secrets`:
 
 In your workflow add the following code:
 ```yaml
-    - name: Upload to Dropbox
-      uses: rensatsu/deploy-to-dropbox@master
-      with:
-        DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
-        GLOB: dist/*
-        DEBUG: true
-        FILE_WRITE_MODE: overwrite
+- name: Upload to Dropbox
+    uses: rensatsu/deploy-to-dropbox@master
+    with:
+    DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
+    GLOB: dist/*
+    DEBUG: true
+    FILE_WRITE_MODE: overwrite
 ```
 
 ## Inputs
