@@ -36,6 +36,7 @@ glob(globSource, {}, (err: any, files: string[]) => {
   Promise.all(files.map(uploadFile))
     .then((all) => {
       core.debug('[Dropbox] All files uploaded: ' + JSON.stringify(all))
+      console.log('[Dropbox] Upload completed')
     })
     .catch((err) => {
       core.setFailed(`Error: Dropbox upload failed: ${err.message}`)
