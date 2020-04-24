@@ -26,7 +26,3 @@ inputs:
     required: false
     default: "add"
 
-  DEBUG:
-    description: "Enable debugging."
-    required: false
-

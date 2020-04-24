@@ -20,7 +20,6 @@ In your workflow add the following code:
     with:
     DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
     GLOB: dist/*
-    DEBUG: true
     FILE_WRITE_MODE: overwrite
 ```
 
@@ -29,7 +28,6 @@ In your workflow add the following code:
 * `DROPBOX_ACCESS_TOKEN` - Access token for Dropbox.
 * `GLOB` - [Glob](https://www.npmjs.com/package/glob) pattern of files to upload.
 * `FILE_WRITE_MODE` - Set file write mode when conflict occurs. Allowed modes: "add", "overwrite", "update".
-* `DEBUG` - Print debug information.
 
 Head over to [action.yml](action.yml) for more information about variables.
 
@@ -39,3 +37,11 @@ For the lazy ...
 ```bash
 git add -A && git commit -m "ci" && git tag -a -m "ci" v1.0.5 && git push --follow-tags
 ```
+
+## Debugging
+
+This action uses "Step Debug Logs" for debug output. You can enable debug
+output by creating a new secret variable `ACTIONS_RUNNER_DEBUG` with
+value `true`. [Click here][gh-step-debug] for more details.
+
+[gh-step-debug]: https://github.com/actions/toolkit/blob/master/docs/action-debugging.md#step-debug-logs

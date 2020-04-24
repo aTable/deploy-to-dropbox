@@ -17,42 +17,37 @@ const glob = require('glob');
 const accessToken = core.getInput('DROPBOX_ACCESS_TOKEN');
 const globSource = core.getInput('GLOB');
 const dropboxPathPrefix = core.getInput('DROPBOX_DESTINATION_PATH_PREFIX');
-const isDebug = core.getInput('DEBUG'); //.toUpperCase() === 'TRUE'
-console.log('isDebug', isDebug, isDebug === true, isDebug === false, typeof isDebug);
 const fileWriteMode = core.getInput('FILE_WRITE_MODE');
 const dropbox = new Dropbox({ accessToken, fetch: fetch2 });
 function uploadFile(filePath) {
     return __awaiter(this, void 0, void 0, function* () {
         const file = fs.readFileSync(filePath);
         const destinationPath = `${dropboxPathPrefix}${filePath}`;
-        if (isDebug)
-            console.log('[Dropbox]', 'Uploaded file at: ', destinationPath);
+        core.debug(`[Dropbox] Uploaded file at: ${destinationPath}`);
         try {
             const response = yield dropbox.filesUpload({
                 path: destinationPath,
                 contents: file,
                 mode: fileWriteMode,
             });
-            if (isDebug)
-                console.log('[Dropbox]', 'File upload response', response);
+            core.debug('[Dropbox] File upload response: ' + JSON.stringify(response));
             return response;
         }
         catch (error) {
-            if (isDebug)
-                console.error('[Dropbox]', 'File upload error', error);
+            core.error('[Dropbox] File upload error: ' + JSON.stringify(error));
             return error;
         }
     });
 }
 glob(globSource, {}, (err, files) => {
     if (err)
-        core.setFailed('Error: glob failed', err);
+        core.setFailed(`Error: glob failed: ${err.message}`);
     Promise.all(files.map(uploadFile))
         .then((all) => {
-        console.log('[Dropbox]', 'All files uploaded', all);
+        core.debug('[Dropbox] All files uploaded: ' + JSON.stringify(all));
     })
         .catch((err) => {
-        core.setFailed('Error: dropbox upload failed', err);
-        console.error('[Dropbox]', 'Upload failed', err);
+        core.setFailed(`Error: Dropbox upload failed: ${err.message}`);
+        core.error('[Dropbox] Upload failed: ' + JSON.stringify(err));
     });
 });
