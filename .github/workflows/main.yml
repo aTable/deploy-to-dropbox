@@ -13,4 +13,4 @@ jobs:
           DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
           DROPBOX_DESTINATION_PATH_PREFIX: "/"
           GLOB: "sample/**/*.md"
-          DEBUG: false
+          DEBUG: FALSE
