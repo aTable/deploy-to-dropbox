@@ -41,7 +41,7 @@ git add -A && git commit -m "ci" && git tag -a -m "ci" v1.0.5 && git push --foll
 ## Debugging
 
 This action uses "Step Debug Logs" for debug output. You can enable debug
-output by creating a new secret variable `ACTIONS_RUNNER_DEBUG` with
+output by creating a new secret variable `ACTIONS_STEP_DEBUG` with
 value `true`. [Click here][gh-step-debug] for more details.
 
 [gh-step-debug]: https://github.com/actions/toolkit/blob/master/docs/action-debugging.md#step-debug-logs
