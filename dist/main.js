@@ -18,6 +18,7 @@ const accessToken = core.getInput('DROPBOX_ACCESS_TOKEN');
 const globSource = core.getInput('GLOB');
 const dropboxPathPrefix = core.getInput('DROPBOX_DESTINATION_PATH_PREFIX');
 const isDebug = core.getInput('DEBUG');
+console.log('isDebug', isDebug, isDebug === true, isDebug === false, parseInt(isDebug), typeof isDebug);
 const fileWriteMode = core.getInput('FILE_WRITE_MODE');
 const dropbox = new Dropbox({ accessToken, fetch: fetch2 });
 function uploadFile(filePath) {
