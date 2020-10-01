@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/aTable/deploy-to-dropbox#readme",
   "dependencies": {
-    "@actions/core": "^1.2.3",
+    "@actions/core": "^1.2.6",
     "@actions/github": "^2.1.1",
     "@types/node": "^13.9.3",
     "dropbox": "^4.0.30",
